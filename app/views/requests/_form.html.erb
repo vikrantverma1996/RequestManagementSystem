@@ -1,0 +1,105 @@
+<%= form_for(request) do |f| %>
+  <% if request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%if current_user.department == "IT"%>
+            <div class="field">
+              <%= f.label :it_actual_date %>
+               <br>
+              <%= f.text_field :it_actual_date %>
+            </div>
+           <div class="field">
+              <%= f.label :team_members %>
+               <br>
+              <%= f.text_field :team_members %>
+            </div>
+
+             <div class="field">
+                  <%= f.label :in_progress %>
+                  <%= f.radio_button :it_status, 'in-progress' %>
+                  <%= f.label :on_hold %>
+                  <%= f.radio_button :it_status, 'on-hold' %> 
+                  <%= label :it_status, 'completed' %>
+                  <%= f.radio_button :it_status, 'completed' %>
+            </div>
+            <div class="field">
+              <%= f.label :remarks %>
+               <br>
+              <%= f.text_field :remarks %>
+            </div>
+
+
+  <%else%>
+
+          <%if(current_user.ismanager)%>
+
+            <div class="field">
+              <%= f.label :status %>
+               <br>
+              <%= f.text_field :status %>
+            </div>
+          <%else%>
+
+            <div class="field">
+              <%= f.label :title %>
+               <br>
+              <%= f.text_field :title %>
+            </div>
+
+            <div class="field">
+              <%= f.label :description %>
+               <br>
+              <%= f.text_area :description %>
+            </div>
+
+            <div class="field">
+              <%= f.label :attachment %>
+               <br>
+              <%= f.text_field :attachment %>
+            </div>
+
+            <div class="field">
+            <%= f.label :expected_date %>
+            <br>
+            <%= f.text_field :expected_date,placeholder: "dd/mm/yy", 'data-behaviour' => 'datepicker' %>
+
+          </div>
+
+
+            <div class="field">
+              <%= f.label :key_parameter %>
+               <br>
+              <%= f.text_field :key_parameter %>
+            </div>
+
+            <div class="field">
+              <%= f.label :cycle_time_reduction %>
+               <br>
+              <%= f.text_field :cycle_time_reduction %>
+            </div>
+
+            <div class="field">
+              <%= f.label :man_power_reduction %>
+               <br>
+              <%= f.text_field :man_power_reduction %>
+            </div>
+
+          <%end%>
+
+
+           <br>
+          <% end %>
+          <div class="actions">
+              <%= f.submit %>
+               <br>
+                <br>
+            </div>
+  <%end%>

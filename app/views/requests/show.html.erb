@@ -1,0 +1,105 @@
+<p id="notice"><%= notice %></p>
+<%if @request.team_members==nil%>
+<p>
+  <strong>Title:</strong>
+  <%= @request.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @request.description %>
+</p>
+
+<p>
+  <strong>Attachment:</strong>
+  <%= @request.attachment %>
+</p>
+
+<p>
+  <strong>Expected date:</strong>
+  <%= @request.expected_date %>
+</p>
+
+<p>
+  <strong>Key parameter:</strong>
+  <%= @request.key_parameter %>
+</p>
+
+<p>
+  <strong>Cycle time reduction:</strong>
+  <%= @request.cycle_time_reduction %>
+</p>
+
+<p>
+  <strong>Man power reduction:</strong>
+  <%= @request.man_power_reduction %>
+</p>
+<p>
+  <strong>status</strong>
+  <%= @request.status %>
+</p>
+
+<%else%>
+<p>
+  <strong>Title:</strong>
+  <%= @request.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @request.description %>
+</p>
+
+<p>
+  <strong>Attachment:</strong>
+  <%= @request.attachment %>
+</p>
+
+<p>
+  <strong>Expected date:</strong>
+  <%= @request.expected_date %>
+</p>
+
+<p>
+  <strong>Key parameter:</strong>
+  <%= @request.key_parameter %>
+</p>
+
+<p>
+  <strong>Cycle time reduction:</strong>
+  <%= @request.cycle_time_reduction %>
+</p>
+
+<p>
+  <strong>Man power reduction:</strong>
+  <%= @request.man_power_reduction %>
+</p>
+<h2>IT status</h2>
+<p>
+  
+  <br>
+  <strong>acceptance-status</strong>
+  <%= @request.status %>
+</p>
+<p>
+  <strong>Team_members:</strong>
+  <%= @request.team_members %>
+</p>
+
+<p>
+  <strong>scurrent-status-by-IT:</strong>
+  <%= @request.it_status%>
+</p>
+
+<p>
+  <strong>remarks:</strong>
+  <%= @request.remarks %>
+</p>
+<p>
+  <strong>actual_date_of_delivery</strong>
+  <%= @request.it_actual_date %>
+</p>
+<%end%>
+
+<%= link_to 'Edit', edit_request_path(@request) %> |
+<%= link_to 'Back', requests_path %>
